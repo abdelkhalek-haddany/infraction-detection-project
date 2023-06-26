@@ -1,16 +1,16 @@
 # Infractions detection system
 
-### The Infractions Detection System is a web-based application built using Spring Boot and Angular. It aims to detect and track radar violations, providing real-time notifications and reporting for efficient traffic management. The backend is built using Spring Boot, while the front end is built using Angular with Bootstrap for the user interface.
+The Infractions Detection System is a web-based application built using Spring Boot and Angular. It aims to detect and track radar violations, providing real-time notifications and reporting for efficient traffic management. The backend is built using Spring Boot, while the front end is built using Angular with Bootstrap for the user interface.
 
-### The application allows users to perform various operations, such as submitting a speeding violation, viewing violations of a vehicle owner, modifying and viewing radar data, and modifying and viewing vehicle and owner data.
+The application allows users to perform various operations, such as submitting a speeding violation, viewing violations of a vehicle owner, modifying and viewing radar data, and modifying and viewing vehicle and owner data.
 
-### The backend services include the Registration Service, Radar Service, Infraction Service, Eureka Discovery Service, Gateway Service, and Road Radar. Each service handles specific functionalities and interacts with the corresponding data repositories.
+The backend services include the Registration Service, Radar Service, Infraction Service, Eureka Discovery Service, Gateway Service, and Road Radar. Each service handles specific functionalities and interacts with the corresponding data repositories.
 
-### The front end is developed using Angular, providing a user-friendly interface for interacting with the system.
+The front end is developed using Angular, providing a user-friendly interface for interacting with the system.
 
-### The application utilizes technologies such as Spring Boot, Angular, Bootstrap, H2, and various web services integrations like REST, GraphQL, SOAP, and gRPC.
+The application utilizes technologies such as Spring Boot, Angular, Bootstrap, H2, and various web services integrations like REST, GraphQL, SOAP, and gRPC.
 
-### Overall, the Radar Violation Detection System provides a comprehensive solution for managing radar violations and ensuring efficient traffic management.
+#Overall, the Infraction Detection System provides a comprehensive solution for managing radar violations and ensuring efficient traffic management.
 
 
 
