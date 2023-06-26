@@ -1,0 +1,168 @@
+<div class="d-flex align-items-center m-2">
+  <h4><b>All Infractions</b></h4>
+</div>
+
+<ng-template #errors>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <span class="fas fa-bullhorn me-1"></span>
+    <strong>{{ errMessage }}</strong>
+    <button
+      type="button"
+      class="btn-close btn-sm"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</ng-template>
+
+<!-- Table -->
+<div class="container">
+  <div class="row" *ngIf="isVehicleInfoVisible">
+
+    <div class="col-lg-6 mb-4">
+      <div class="card border-0 shadow">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title mb-0">Vehicle Information</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Registration Number:</strong> {{ selectedVehicleInfraction.regestrationNumber | slice:0:8 }}</p>
+          <p><strong>ID:</strong> {{ selectedVehicleInfraction.id }}</p>
+          <p><strong>Brand:</strong> {{ selectedVehicleInfraction.brand }}</p>
+          <p><strong>Model:</strong> {{ selectedVehicleInfraction.model }}</p>
+          <p><strong>Fiscal Power:</strong> {{ selectedVehicleInfraction.fiscalPower }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+      <div class="card border-0 shadow">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title mb-0">Owner Information</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Name:</strong> {{ selectedVehicleInfraction.owner.name }}</p>
+          <p><strong>ID:</strong> {{ selectedVehicleInfraction.owner.id }}</p>
+          <p><strong>Birth Date:</strong> {{ selectedVehicleInfraction.owner.birthDate | date:'yyyy-MM-dd' }}</p>
+          <p><strong>Email:</strong> {{ selectedVehicleInfraction.owner.email }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+      <div class="card border-0 shadow">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title mb-0">Radar Information</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Name:</strong> {{ selectedRadarInfraction.name }}</p>
+          <p><strong>ID:</strong> {{ selectedRadarInfraction.id }}</p>
+          <p><strong>Max Speed:</strong> {{ selectedRadarInfraction.maxSpeed }}</p>
+          <p><strong>Longitude:</strong> {{ selectedRadarInfraction.longitude }}</p>
+          <p><strong>Latitude:</strong> {{ selectedRadarInfraction.latitude }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row" *ngIf="infractions; else errors">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <div class="card border-0 shadow">
+          <div class="card-header">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="fs-5 fw-bold mb-0">Infractions</h2>
+              </div>
+              <!--<div class="col text-end"><a href="#" class="btn btn-sm btn-primary">Add Vehicle</a></div>-->
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th class="border-bottom" scope="col">#</th>
+                  <th class="border-bottom" scope="col">Date</th>
+                  <!--<th class="border-bottom" scope="col">Vehicle RN</th>-->
+                  <th class="border-bottom" scope="col">V Owner</th>
+                  <th class="border-bottom" scope="col">Amount</th>
+                  <th class="border-bottom" scope="col">Paid</th>
+                  <th class="border-bottom" scope="col">Details</th>
+                  <th class="border-bottom" scope="col">PDF</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let i of infractions">
+                  <td>{{ i.id }}</td>
+                  <td>{{ i.date | date : "yy-MM-dd  [HH:mm:ss]" }}</td>
+                  <!--<td>{{i.vehicleMatricule| slice:0:8 }}</td>-->
+                  <td>{{ i.vehicle.owner.name }}</td>
+                  <td>{{ i.infractionAmount }}</td>
+                  <td>
+                    <button
+                      (click)="handleSetPayed(i)"
+                      [disabled]="i.paid"
+                      class="btn btn-sm"
+                    >
+                      <span *ngIf="i.paid == true">Paid</span>
+                      <span *ngIf="i.paid == false">Non paid</span>
+                    </button>
+                  </td>
+                  <td>
+                    <a
+                      (click)="showInfraction(i)"
+                      data-bs-toggle="tooltip"
+                      title="Show Infraction"
+                    >
+                      Details
+                    </a>
+                    </td>
+                    <td>
+                    <a
+                      (click)="generatePDF(i)"
+                      data-bs-toggle="tooltip"
+                      title="Download PDF"
+                    >
+                      <span class="sidebar-icon">
+                        <span class="material-symbols-outlined">
+                          picture_as_pdf
+                        </span>
+                      </span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <nav aria-label="Page navigation example" class="m-3">
+              <ul class="pagination pagination-sm">
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    aria-label="Previous"
+                    (click)="previousPage()"
+                  >
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <p class="page-link">
+                    Page {{ currentPage + 1 }} of {{ totalPages }}
+                  </p>
+                </li>
+
+                <li class="page-item">
+                  <a class="page-link" aria-label="Next" (click)="nextPage()">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+<div class="d-flex align-items-center m-2">
+  <h4><b>Cars / Owners</b></h4>
+</div>
+
+<ng-template #errors>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <span class="fas fa-bullhorn me-1"></span>
+    <strong>{{ errMessage }}</strong>
+    <button
+      type="button"
+      class="btn-close btn-sm"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</ng-template>
+
+<div class="row" *ngIf="vehicles; else errors">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <div class="card border-0 shadow">
+          <div class="card-header">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="fs-5 fw-bold mb-0">All Vehicles</h2>
+              </div>
+              <!--<div class="col text-end"><a href="#" class="btn btn-sm btn-primary">Add Vehicle</a></div>-->
+            </div>
+          </div>
+          <div *ngIf="isOwnerInfoVisible" class="col-12 col-xl-4">
+            <div class="card border-0 shadow">
+              <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">Owner Information</h5>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12">
+                    <h4 class="fw-normal mb-2">
+                      {{ selectedVehicleOwner.name }}
+                    </h4>
+                  </div>
+                  <div class="col-12">
+                    <p>
+                      <strong>Email:</strong> {{ selectedVehicleOwner.email }}
+                    </p>
+                    <p>
+                      <strong>Birth Date:</strong>
+                      {{ selectedVehicleOwner.birthDate | date : "yyyy-MM-dd" }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th class="border-bottom" scope="col">Regestration Number</th>
+                  <th class="border-bottom" scope="col">Brand</th>
+                  <th class="border-bottom" scope="col">Model</th>
+                  <th class="border-bottom" scope="col">FP</th>
+                  <th class="border-bottom" scope="col">Owner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let v of vehicles">
+                  <th class="fw-bolder text-gray-500">
+                    {{ v.regestrationNumber | slice : 0 : 8 }}
+                  </th>
+                  <td class="fw-bolder text-gray-500">{{ v.brand }}</td>
+                  <td class="fw-bolder text-gray-500">{{ v.model }}</td>
+                  <td class="fw-bolder text-gray-500">{{ v.fiscalPower }}</td>
+                  <td class="fw-bolder text-gray-500">
+                    <a
+                      (click)="showOwner(v)"
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                      title="Show Owner"
+                    >
+                      {{ v.owner.name }}
+                    </a>
+                    <!--<button (click)="showOwner(v)" class="btn btn-primary btn-sm">Show Owner</button>-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <nav aria-label="Page navigation example" class="m-3">
+              <ul class="pagination pagination-sm">
+                <li class="page-item">
+                  <a
+                    (click)="previousPage()"
+                    aria-label="Previous"
+                    class="page-link"
+                  >
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <p class="page-link">
+                    Page {{ currentPage + 1 }} of {{ totalPages }}
+                  </p>
+                </li>
+
+                <li class="page-item">
+                  <a (click)="nextPage()" aria-label="Next" class="page-link">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+  <!-- <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#exampleModal"
+  >
+    Launch demo modal
+  </button> -->
+
+  <!-- Modal -->
+  <!-- <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Owner Informations</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="col-12 px-0 mb-4">
+          <div class="card border-0 shadow">
+            <div
+              class="card-header d-flex flex-row align-items-center flex-0 border-bottom"
+            >
+              <div class="d-block">
+                <h2 class="h6 m-2 text-success">
+                  <b> {{ selectedVehicleOwner.name }} </b>
+                </h2>
+              </div>
+            </div>
+            <div class="card-body p-2 m-2">
+              <div class="h6">
+                <b class="text-danger">Email : </b><br />
+                {{ selectedVehicleOwner.email }}<br /><br />
+
+                <b class="text-danger">Birth Date : </b><br />
+                {{ selectedVehicleOwner.birthDate | date : "yyyy-MM-dd" }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

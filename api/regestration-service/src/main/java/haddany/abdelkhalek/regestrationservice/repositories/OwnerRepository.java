@@ -1,0 +1,7 @@
+package haddany.abdelkhalek.regestrationservice.repositories;
+
+import haddany.abdelkhalek.regestrationservice.entites.Owner;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OwnerRepository extends JpaRepository<Owner, Long> {
+}
