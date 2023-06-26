@@ -12,22 +12,7 @@
 
 ### Overall, the Radar Violation Detection System provides a comprehensive solution for managing radar violations and ensuring efficient traffic management.
 
-# Table of Contents
-- [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-- [Technologies Used](#technologies-used)
-- [Technical Architecture](#technical-architecture)
-- [Class Diagram](#class-diagram)
-- [Backend Services](#backend-services)
-    - [Regestration Service](#regestration-service)
-    - [Radar Service](#radar-service)
-    - [Infraction Service](#infraction-service)
-    - [Eureka Discovery Service](#eureka-discovery-service)
-    - [Gateway Service](#gateway-service)
-    - [Road Radar](#road-radar)
-- [Frontend with Angular](#frontend-with-angular)
-- [License](#license)
+
 
 
 ## Getting Started
@@ -35,9 +20,8 @@
 Before running this application, you need to have the following software installed on your system :
 
 ```java
-- Java Development Kit (JDK) version 11 or later
-- Node.js version 14 or later
-- Angular CLI version 13 or later
+- Node.js version 18.2 or later
+- Angular CLI version 14 or later
 ```
 
 ### Installation
