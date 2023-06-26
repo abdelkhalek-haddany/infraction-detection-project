@@ -8,7 +8,7 @@
 
 ### The front end is developed using Angular, providing a user-friendly interface for interacting with the system.
 
-### The application utilizes technologies such as Spring Boot, Angular, Bootstrap, MySQL, and various web service integrations like REST, GraphQL, SOAP, and gRPC.
+### The application utilizes technologies such as Spring Boot, Angular, Bootstrap, MySQL, and various web services integrations like REST, GraphQL, SOAP, and gRPC.
 
 ### Overall, the Radar Violation Detection System provides a comprehensive solution for managing radar violations and ensuring efficient traffic management.
 
