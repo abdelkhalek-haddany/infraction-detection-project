@@ -8,7 +8,7 @@
 
 ### The front end is developed using Angular, providing a user-friendly interface for interacting with the system.
 
-### The application utilizes technologies such as Spring Boot, Angular, Bootstrap, MySQL, and various web services integrations like REST, GraphQL, SOAP, and gRPC.
+### The application utilizes technologies such as Spring Boot, Angular, Bootstrap, H2, and various web services integrations like REST, GraphQL, SOAP, and gRPC.
 
 ### Overall, the Radar Violation Detection System provides a comprehensive solution for managing radar violations and ensuring efficient traffic management.
 
@@ -48,7 +48,7 @@ ng serve
 
 ## Technical Architecture
 
-<img src="https://github.com/abdelkhalek-haddany/infraction-detection-project">
+<img src="https://github.com/el-moudni-hicham/radar-violation-detection-system/assets/85403056/f49b19b6-7f95-4f45-8b65-1060db7d9dc7">
 
 ## Class Diagram 
 
