@@ -29,11 +29,11 @@ Follow these steps to install and run the application :
 
 1. Clone the repository :
 ```
-git clone https://github.com/el-moudni-hicham/radar-violation-detection-system.git
+git clone https://github.com/abdelkhalek-haddany/infraction-detection-project
 ```
-2. Navigate to the backend directory and run the following command to start the each Spring Boot project :
+2. Navigate to the backend directory and run the following command to start each Spring Boot project :
 ```
-./mvnw spring-boot:run
+./mvnw spring-boot: run
 ```
 3. Navigate to the frontend directory and run the following command to install the required packages :
 ```
@@ -45,24 +45,6 @@ ng serve
 ```
 5. Open your browser and navigate to `http://localhost:4200` to access the application.
 
-## Technologies Used
-The following technologies and frameworks are used in this application:
-
-- Spring Boot
-- Spring Cloud
-- Eureka Descovery
-- Angular
-- Bootstrap
-- MySQL
-
-## Functionalities
-
-The application allows performing the following operations:
-- Submit a speeding violation.
-- View violations of a vehicle owner.
-- Modify and view radar data.
-- Modify and view vehicle and owner data.
-- Modify and view infraction data.
 
 ## Technical Architecture
 
