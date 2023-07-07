@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 @Component({
   selector: 'app-new-radar',
   templateUrl: './new-radar.component.html',
-  styleUrls: ['./new-radar.component.css']
+  styleUrls: ['./new-radar.component.scss']
 })
 export class NewRadarComponent {
   radarFormGroup! : FormGroup;

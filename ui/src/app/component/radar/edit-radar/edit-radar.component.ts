@@ -8,7 +8,7 @@ import {Radar} from "../../../models/radar.model";
 @Component({
   selector: 'app-edit-radar',
   templateUrl: './edit-radar.component.html',
-  styleUrls: ['./edit-radar.component.css']
+  styleUrls: ['./edit-radar.component.scss']
 })
 export class EditRadarComponent {
   radarId! : number;

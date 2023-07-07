@@ -20,7 +20,7 @@ public class CXFSoapWebServiceConfig {
         // Create a new EndpointImpl object with the provided Bus and OwnerSoapService
         EndpointImpl endpoint = new EndpointImpl(bus, ownerSoapService);
 
-        endpoint.publish("/owService"); // Publish the SOAP Web Service on the specified URL
+        endpoint.publish("/soap"); // Publish the SOAP Web Service on the specified URL
 
         return endpoint; // Return the configured EndpointImpl object
     }
