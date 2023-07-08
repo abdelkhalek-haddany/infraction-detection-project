@@ -77,6 +77,7 @@ The backend consists of five services:
 ### Registration Service
 The Registration microservice handles the management of vehicles owned by owners. Each vehicle is associated with a single owner. An owner is defined by their ID, name, date of birth, and email. A vehicle is defined by its ID, registration number, brand, fiscal power, and model.
 #### Service Structure:
+```
 Entities:
   -Owner.java
   -OwnerRequest.java
@@ -107,11 +108,12 @@ Resources:
   -xsd-schema.xsd
 GraphQL:
   -schema.graphqls
-
+```
 
 ### Radar Service
 The Radar microservice is responsible for managing radars. It handles radar entities defined by their ID, maximum speed limit, and coordinates (longitude and latitude).
 #### Service Structure:
+```
 Entities:
   -Radar.java
 Feign:
@@ -126,12 +128,13 @@ Web:
 Resources:
   -application.properties
   -radar-service.proto
-  
+  ```
 
 
 #### Infraction Service
 The Infraction microservice is responsible for managing violations. It handles each violation, which is defined by its ID, date, the radar number that detected the offense, the vehicle registration number, the vehicle's speed, the radar's maximum speed limit, and the fine amount.
 #### Service Structure:
+```
 Entities:
   -Infraction.java
 Feign:
@@ -148,28 +151,32 @@ Web:
   -InfractionRestController.java
 Resources:
   -application.properties
-
+```
 
 ### Eureka Discovery Service
 The Eureka Discovery Service is a server-side component in the Netflix OSS stack. It allows services to register and discover each other in a microservices architecture.
 #### Service Structure:
+```
 Application:
   -EurekaDiscoveryApplication.java
 Resources:
   -application.properties
+```
   
 ### Gateway Service
 The Gateway Service is implemented using Spring Cloud Gateway. It provides a centralized entry point for routing and filtering requests to microservices in a distributed system. It enables dynamic and scalable routing based on various criteria.
 #### Service Structure:
+```
 Application:
   -GatewayApplication.java
 Resources:
   -application.properties
   -application.yml
-
+```
 ### Road Radar
 The Road Radar is a Java application that simulates a radar system. It generates random speeding violations and sends them to the Radar-Service.
 #### Service Structure:
+```
 Application:
   -RadarDetectionService.java
   -RadarRoadApplication.java
@@ -179,6 +186,7 @@ Models:
   -Vehicle.java
 Resources:
   -application.properties
+```
   
 # Test API (BackEnd)
 ## eureka-discovery
