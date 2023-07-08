@@ -64,11 +64,11 @@ The application allows performing the following operations:
 
 ## Technical Architecture
 
-<img src="https://github.com/el-moudni-hicham/radar-violation-detection-system/assets/85403056/f49b19b6-7f95-4f45-8b65-1060db7d9dc7">
+![test11](/resources/11.png)  
 
 ## Class Diagram 
 
-<img src="https://github.com/el-moudni-hicham/radar-violation-detection-system/assets/85403056/3f6bacdd-84ea-4e1e-9c9f-0ae69cca8202" width="70%">
+![test12](/resources/12.png)  
 
 ## Backend Services
 The backend consists of five services:
