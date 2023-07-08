@@ -45,6 +45,22 @@ ng serve
 ```
 5. Open your browser and navigate to `http://localhost:4200` to access the application.
 
+## Technologies Used
+I use the languages and the frameworks below:
+•	Spring Boot
+•	Spring Cloud
+•	Eureka Descovery
+•	Angular
+•	Bootstrap
+•	H2
+## Functionalities
+The application allows performing the following operations:
+•	Submit a speeding violation.
+•	View violations of a vehicle owner.
+•	Modify and view radar data.
+•	Modify and view vehicle and owner data.
+•	Modify and view infraction data.
+
 
 ## Technical Architecture
 
@@ -53,4 +69,119 @@ ng serve
 ## Class Diagram 
 
 <img src="https://github.com/el-moudni-hicham/radar-violation-detection-system/assets/85403056/3f6bacdd-84ea-4e1e-9c9f-0ae69cca8202" width="70%">
+
+## Backend Services
+The backend consists of five services:
+
+
+### Registration Service
+The Registration microservice handles the management of vehicles owned by owners. Each vehicle is associated with a single owner. An owner is defined by their ID, name, date of birth, and email. A vehicle is defined by its ID, registration number, brand, fiscal power, and model.
+#### Service Structure:
+Entities:
+  Owner.java
+  OwnerRequest.java
+  Vehicle.java
+Repositories:
+  OwnerRepository.java
+  VehicleRepository.java
+Web:
+  GraphQL:
+    OwnerGraphqlController.java
+    VehicleGraphqlController.java
+  gRPC:
+    GrpcConfig.java
+    OwnerGrpcService.java
+  Stub:
+    OwnerGrpcServiceGrpc.java
+    OwnerService.java
+  REST:
+    OwnerRestController.java
+    VehicleRestController.java
+  SOAP:
+    CXFSoapWebServiceConfig.java
+    OwnerSoapController.java
+    OwnerSoapService.java
+Resources:
+  application.properties
+  owner-service.proto
+  xsd-schema.xsd
+GraphQL:
+  schema.graphqls
+
+
+### Radar Service
+The Radar microservice is responsible for managing radars. It handles radar entities defined by their ID, maximum speed limit, and coordinates (longitude and latitude).
+#### Service Structure:
+Entities:
+  Radar.java
+Feign:
+  InfractionRestClient.java
+Models:
+  Infraction.java
+  NewData.java
+Repositories:
+  RadarRepository.java
+Web:
+  RadarRestController.java
+Resources:
+  application.properties
+  radar-service.proto
+  Static
+  Templates
+
+
+#### Infraction Service
+The Infraction microservice is responsible for managing violations. It handles each violation, which is defined by its ID, date, the radar number that detected the offense, the vehicle registration number, the vehicle's speed, the radar's maximum speed limit, and the fine amount.
+#### Service Structure:
+Entities:
+  Infraction.java
+Feign:
+  RadarRestClient.java
+  VehicleRestClient.java
+Models:
+  NewData.java
+  Owner.java
+  Radar.java
+  Vehicle.java
+Repositories:
+  InfractionRepository.java
+Web:
+  InfractionRestController.java
+Resources:
+  application.properties
+
+
+### Eureka Discovery Service
+The Eureka Discovery Service is a server-side component in the Netflix OSS stack. It allows services to register and discover each other in a microservices architecture.
+#### Service Structure:
+Application:
+  EurekaDiscoveryApplication.java
+Resources:
+  application.properties
+  
+### Gateway Service
+The Gateway Service is implemented using Spring Cloud Gateway. It provides a centralized entry point for routing and filtering requests to microservices in a distributed system. It enables dynamic and scalable routing based on various criteria.
+#### Service Structure:
+Application:
+  GatewayApplication.java
+Resources:
+  application.properties
+  application.yml
+
+### Road Radar
+The Road Radar is a Java application that simulates a radar system. It generates random speeding violations and sends them to the Radar-Service.
+#### Service Structure:
+Application:
+  RadarDetectionService.java
+  RadarRoadApplication.java
+Models:
+  NewData.java
+  Radar.java
+  Vehicle.java
+Resources:
+  application.properties
+  
+# Test API (BackEnd)
+## eureka-discovery
+
 
