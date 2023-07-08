@@ -190,5 +190,27 @@ Resources:
   
 # Test API (BackEnd)
 ## eureka-discovery
+ ![test1](/resources/1.png)  
+## Registration service 
+![test2](/resources/2.png)  
+### Owners:
+ ![test3](/resources/3.png)  
+### Cars:
+ ![test4](/resources/4.png)  
+## Radar service  
+![test5](/resources/5.png)  
+
+# Test UI(FrontEnd)
+## Website Dashboard
+ ![test6](/resources/6.png)  
+## All radars page
+ ![test7](/resources/7.png)  
+## All owners and cars page
+ ![test8](/resources/8.png)  
+## All infractions page
+![test9](/resources/9.png)  
+## Infractions Generation
+![test10](/resources/10.png)  
+
 
 
