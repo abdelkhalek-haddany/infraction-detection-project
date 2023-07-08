@@ -89,16 +89,16 @@ Web:
   -GraphQL:
     --OwnerGraphqlController.java
     --VehicleGraphqlController.java
-  gRPC:
+  -gRPC:
     --GrpcConfig.java
     --OwnerGrpcService.java
-  Stub:
+  -Stub:
     --OwnerGrpcServiceGrpc.java
     --OwnerService.java
-  REST:
+  -REST:
     --OwnerRestController.java
     --VehicleRestController.java
-  SOAP:
+  -SOAP:
     --CXFSoapWebServiceConfig.java
     --OwnerSoapController.java
     --OwnerSoapService.java
